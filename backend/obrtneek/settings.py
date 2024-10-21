@@ -1,7 +1,8 @@
-from pathlib import Path
-import environ
 import os
 from datetime import timedelta
+from pathlib import Path
+
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,6 +16,7 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 
+AUTH_USER_MODEL = "obrtneek_app.CustomUser"
 
 INSTALLED_APPS = [
     "django.contrib.admin",
