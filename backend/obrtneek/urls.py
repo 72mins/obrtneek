@@ -9,10 +9,14 @@ from drf_spectacular.views import (
 )
 
 from obrtneek_app import urls as app_urls
+from obrtneek_app.views.user import CustomRefreshView, CustomTokenPairView
 
 urlpatterns = [
     path("", include(app_urls)),
     path("admin/", admin.site.urls),
+    # Auth
+    path("api/token/refresh/", CustomRefreshView.as_view(), name="token_refresh"),
+    path("api/token/", CustomTokenPairView.as_view(), name="token_obtain_pair"),
     # DRF Spectacular
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
